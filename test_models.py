@@ -314,8 +314,8 @@ l_rate = 0.001
 batch_size = 64
 
 fusar_path = "fusar_split"
-open_sar_path = "opensarship_splited"
-mix_path = "mix_5"
+open_sar_path = "opensar_split"
+mix_path = "mix_split"
 
 csv_res = []
 
@@ -332,64 +332,13 @@ mix_test_loader = load_data(mix_path + "/test", batch_size=batch_size)
 
 print("Data Loaded")
 
-# datasets = {"Fusar_ship": [fusar_train_loader,fusar_test_loader],
-#             "OpenSARShip": [open_sar_train_loader, open_sar_test_loader],
-#             "Mixed": [mix_train_loader, mix_test_loader]}
-
-print("Made a Dictionary")
-
 models = {"CNN": ImprovedCNNModel(),
           "VGG": VGGModel(),
           "Fine_VGG": FineTunedVGG(),
           "ResNet": ResNetModel(),
           "Fine_Resnet": FineTunedResNet()}
 
-# models = {"ResNet": ResNetModel()}
-
 print("Loaded Models")
-
-# models = []
-
-# for dataset_name, dataset_loader in datasets.items():
-#     print("Training on ", dataset_name)
-#     results += "Training on " + dataset_name + "\n"
-#     # mix_path = "mix_5"
-#     train_loader_m = dataset_loader[0]
-#     test_loader_m = dataset_loader[1]
-#     for model_name, model in models.items():
-#         print("Training using :" , model_name)
-#         results += "Training using "+model_name + "\n"
-        
-#         n_model = model
-#         optimizer = optim.Adam(n_model.parameters(), lr=l_rate)
-#         n_model.to(device)
-
-#         # Training loop
-#         for epoch in range(epochs):
-#             n_model.train()
-#             print(epoch)
-#             for batch_idx, data in enumerate(train_loader_m):
-#                 data, target = data[0].to(device), data[1].to(device)
-
-#                 optimizer.zero_grad()
-
-#                 output = n_model(data)
-
-#                 loss = lf(output, target)
-#                 loss.backward()
-#                 optimizer.step()
-
-#                 if batch_idx % 57 == 0:
-#                     results+=f'Epoch {epoch + 1}/{epochs}, Batch {batch_idx}/{len(train_loader_m)}, Loss: {loss.item()}\n'
-#                     print(f'Epoch {epoch + 1}/{epochs}, Batch {batch_idx}/{len(train_loader_m)}, Loss: {loss.item()}')
-
-#         # Evaluation
-#         for dataset_name, data_loaders in datasets.items():
-#             print("Evaluating: ", dataset_name)
-#             results += f"Testing {model_name} on {dataset_name} \n"
-#             str_results, csv_scores = evaluate_model(n_model, data_loaders[1])
-#             results += str_results
-#             csv_res.append(csv_scores)
 
 results += "Pre-Training on datasets \n"
 
