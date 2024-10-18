@@ -57,6 +57,18 @@ To replicate the experiments and obtain the results, follow these steps:
 * Try data augmentation techniques to address class imbalance.
 * Implement additional evaluation metrics beyond basic accuracy.
 
+**Citation**
+```
+@unknown{unknown,
+author = {Awais, Ch and Reggiannini, Marco and Pa,},
+year = {2024},
+month = {05},
+pages = {},
+title = {Evaluating the Impact of Fine-tuning on Deep Learning Models for SAR Ship Classification},
+doi = {10.13140/RG.2.2.11266.08642}
+}
+```
+
 **Disclaimer:**
 
 This code is provided for educational purposes only. You might need to adapt it for your specific use case and dataset.
